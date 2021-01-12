@@ -7,8 +7,8 @@
     background-color: $bg-line 
     z-index: 3
 .timer
-    width: 120px
-    height: 120px
+    width: 140px
+    height: 140px
     background-color: #150768
     border-radius: 50%
     display: flex
@@ -17,9 +17,9 @@
     overflow: hidden
     position: relative
     &-body
-        width: 100px
+        width: 110px
         border-radius: 50%
-        height: 100px
+        height: 110px
         background-image: linear-gradient( 135.9deg,  #6c19fc9d 16.4%, #7d1fa5bc 56.1% )
         z-index: 10
         display: flex
@@ -42,7 +42,6 @@ button
     border: none
     cursor: pointer
     background: #5797ffe1
-    // background-image: linear-gradient( 109.6deg,  rgba(238,58,136,1) 11.2%, #5f0077 91.1% )
     &:active,
     &:focus
         outline: none
@@ -55,6 +54,19 @@ button
     flex-direction: column
     align-items: center
     margin-bottom: 50px
+
+.change-size
+    display: flex
+    
+    button
+        padding: 1px 1px
+        font-family: 'Yeon Sung', cursive
+        font-size: 20px 
+        border-radius: 10px
+        border: none
+        cursor: pointer
+        background: transparent
+        color: #f47aff
 @keyframes line_left
     0%
        visibility: visible 
@@ -68,7 +80,6 @@ button
     50%,
     100%
         visibility: visible
-
 
 @keyframes line 
     0% 

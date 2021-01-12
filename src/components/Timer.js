@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Style from 'style-it';
-import Buttons from "./Buttons";
+import Buttons from "./Buttons"
+import  ChangeSize from "./ChangeSize";
 import "../css/general.css";
+
 class Timer extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +12,9 @@ class Timer extends Component {
             stepTimer: props.stepTimer,
             id: props.id,
             btnStart: false,
-            btnStop: true
+            btnStop: true,
+            currentTime: props.startTime,
+            changeBtns: false
         }
     }
 
@@ -28,6 +32,7 @@ class Timer extends Component {
         }
         this.setState({ btnStart: true });
         this.setState({ btnStop: false });
+        this.setState({changeBtns: true});
         this.timerID = setInterval(
             () => this.tick(),
             1000 * this.state.stepTimer
@@ -37,12 +42,13 @@ class Timer extends Component {
     stopTimer = () => {
         this.setState({ btnStart: false });
         this.setState({ btnStop: true });
+        this.setState({changeBtns: false});
         clearInterval(this.timerID);
     }
     tick() {
         const generalTimer = document.getElementById(this.state.id);
         const lineTimer = document.getElementById(this.state.id + "-line");
-
+       
         if (this.state.timeNow > 0) {
             if (!generalTimer.classList.contains("timer") && this.props.buttons !== 2) {
                 generalTimer.classList.add("timer")
@@ -58,13 +64,29 @@ class Timer extends Component {
             }
 
             this.setState({
-                timeNow: this.props.startTime
+                timeNow: this.state.currentTime
             });
             if (!this.props.autostart) {
                 this.setState({ btnStart: false });
+                this.setState({changeBtns: false});
                 clearInterval(this.timerID);
             }
         }
+    }
+
+    bigValue = () => {
+        this.setState({
+            timeNow: this.state.timeNow + 1
+        });
+        this.setState({
+            currentTime: this.state.currentTime + 1
+        })
+    }
+
+    smallValue = () => {
+        this.state.timeNow > 0 ? this.setState({timeNow: this.state.timeNow - 1}) : this.setState({timeNow: 0});
+        this.state.currentTime > 0 ? this.setState({currentTime: this.state.currentTime - 1}) : this.setState({currentTime: 0});
+
     }
     render() {
         return (
@@ -77,7 +99,7 @@ class Timer extends Component {
                     width: 100%;
                     height: 100%;
                     z-index: 2;
-                    animation: line ${this.props.startTime}s  linear forwards;
+                    animation: line ${this.state.currentTime}s  linear forwards;
                 }
 
                 .timer-line::after {
@@ -99,7 +121,7 @@ class Timer extends Component {
                     background-color: #150768;
                     z-index: 3;
                     left: 0;
-                    animation: line_left ${this.props.startTime}s steps(1, end) forwards;
+                    animation: line_left ${this.state.currentTime}s steps(1, end) forwards;
                   }
                   
                   .timer::after {
@@ -111,7 +133,7 @@ class Timer extends Component {
                     background-color: #978989;
                     z-index: 3;
                     right: 0;
-                    animation: line_right ${this.props.startTime}s steps(1, end) forwards;
+                    animation: line_right ${this.state.currentTime}s steps(1, end) forwards;
                   }
 
             `}
@@ -120,6 +142,13 @@ class Timer extends Component {
                         <div id={`${this.state.id}` + "-line"} />
                         <div className="timer-body">
                             <div className="timer-number">{this.state.timeNow}</div>
+                            <ChangeSize 
+                              currentValue = {this.state.timeNow}
+                              bigValue = {this.bigValue}
+                              smallValue = {this.smallValue}
+                              changeBtns = {this.state.changeBtns}
+                              indexBtn = {this.props.buttons}
+                            />
                         </div>
                     </div>
                     <Buttons

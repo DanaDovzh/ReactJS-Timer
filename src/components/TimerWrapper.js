@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Timer from "./Timer";
 
 class TimerWrapper extends Component {
+    state = {
+        startTime: 12
+    }
     onStartTimer() {
         console.log("Timer stars");
     }
@@ -9,13 +12,12 @@ class TimerWrapper extends Component {
         console.log("Timer stop");
     }
 
-    render() {
+     render() {
         return (
             <div className="main">
-
                 <Timer
-                    stepTimer={2}
-                    startTime={12}
+                    stepTimer={0.5}
+                    startTime={this.state.startTime}
                     onStartTimer={this.onStartTimer}
                     onStopTimer={this.onStopTimer}
                     id={1}
@@ -30,7 +32,7 @@ class TimerWrapper extends Component {
                     buttons={2}
                 />
                 <Timer
-                    stepTimer={1}
+                    stepTimer={2}
                     startTime={20}
                     onStartTimer={this.onStartTimer}
                     onStopTimer={this.onStopTimer}
