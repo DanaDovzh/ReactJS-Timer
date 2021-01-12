@@ -1,0 +1,19 @@
+.timer,
+.timer-go {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timer {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 20px;
+}
+
+.timer-go {
+  width: 120px;
+  height: 120px;
+  border: 1px solid red;
+}
