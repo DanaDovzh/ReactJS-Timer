@@ -57,16 +57,20 @@ button
 
 .change-size
     display: flex
-    
-    button
-        padding: 1px 1px
+    flex-direction: column
+    input
         font-family: 'Yeon Sung', cursive
         font-size: 20px 
-        border-radius: 10px
         border: none
         cursor: pointer
         background: transparent
         color: #f47aff
+        margin-top: 6px
+        &:active,
+        &:focus
+            outline: none
+            border: none
+            
 @keyframes line_left
     0%
        visibility: visible 

@@ -57,16 +57,20 @@ button:active {
 
 .change-size {
   display: flex;
+  flex-direction: column;
 }
-.change-size button {
-  padding: 1px 1px;
+.change-size input {
   font-family: "Yeon Sung", cursive;
   font-size: 20px;
-  border-radius: 10px;
   border: none;
   cursor: pointer;
   background: transparent;
   color: #f47aff;
+  margin-top: 6px;
+}
+.change-size input:active, .change-size input:focus {
+  outline: none;
+  border: none;
 }
 
 @keyframes line_left {

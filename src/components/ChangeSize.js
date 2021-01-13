@@ -1,10 +1,10 @@
 import React from 'react';
 
-function  ChangeSize({bigValue, smallValue, changeBtns, indexBtn}) {
-    return (indexBtn != 0) ? (
+function  ChangeSize({changeTime, changeBtns, indexBtn}) {
+    return (indexBtn !== 0) ? (
         <div className = "change-size">
-            <button onClick = {bigValue} disabled = {changeBtns}>+</button>
-            <button onClick = {smallValue} disabled = {changeBtns}>-</button>
+            <input type = "button" value = "+" onClick = {() => changeTime("+")} disabled = {changeBtns}></input>
+            <input type = "button" value="-" onClick = {() => changeTime("-")} disabled = {changeBtns}></input>
         </div>
     ) : <div></div>
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import Style from 'style-it';
 import Buttons from "./Buttons"
 import  ChangeSize from "./ChangeSize";
@@ -51,7 +51,7 @@ class Timer extends Component {
        
         if (this.state.timeNow > 0) {
             if (!generalTimer.classList.contains("timer") && this.props.buttons !== 2) {
-                generalTimer.classList.add("timer")
+                generalTimer.classList.add("timer");
                 lineTimer.classList.add("timer-line");
             }
             this.setState({
@@ -60,7 +60,7 @@ class Timer extends Component {
         } else {
             if (this.props.buttons !== 2) {
                 lineTimer.classList.remove("timer-line");
-                generalTimer.classList.remove("timer")
+                generalTimer.classList.remove("timer");
             }
 
             this.setState({
@@ -74,20 +74,16 @@ class Timer extends Component {
         }
     }
 
-    bigValue = () => {
-        this.setState({
-            timeNow: this.state.timeNow + 1
-        });
-        this.setState({
-            currentTime: this.state.currentTime + 1
-        })
+     changeTime = (sign) => {
+        if(sign === "+") {
+            this.setState({ timeNow: this.state.timeNow + 1});
+            this.setState({currentTime: this.state.currentTime + 1});
+        } else if (sign === "-") {
+            this.state.timeNow > 0 ? this.setState({timeNow: this.state.timeNow - 1}) : this.setState({timeNow: 0});
+            this.state.currentTime > 0 ? this.setState({currentTime: this.state.currentTime - 1}) : this.setState({currentTime: 0});
+        }
     }
 
-    smallValue = () => {
-        this.state.timeNow > 0 ? this.setState({timeNow: this.state.timeNow - 1}) : this.setState({timeNow: 0});
-        this.state.currentTime > 0 ? this.setState({currentTime: this.state.currentTime - 1}) : this.setState({currentTime: 0});
-
-    }
     render() {
         return (
             <Style>
@@ -144,8 +140,7 @@ class Timer extends Component {
                             <div className="timer-number">{this.state.timeNow}</div>
                             <ChangeSize 
                               currentValue = {this.state.timeNow}
-                              bigValue = {this.bigValue}
-                              smallValue = {this.smallValue}
+                              changeTime = {this.changeTime}
                               changeBtns = {this.state.changeBtns}
                               indexBtn = {this.props.buttons}
                             />
