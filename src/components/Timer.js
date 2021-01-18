@@ -30,9 +30,7 @@ class Timer extends Component {
             lineTimer.classList.add("timer-line");
             generalTimer.classList.add("timer")
         }
-        this.setState({ btnStart: true });
-        this.setState({ btnStop: false });
-        this.setState({changeBtns: true});
+        this.setState({ btnStart: true, btnStop: false, changeBtns: true });
         this.timerID = setInterval(
             () => this.tick(),
             1000 * this.state.stepTimer
@@ -40,9 +38,7 @@ class Timer extends Component {
     }
 
     stopTimer = () => {
-        this.setState({ btnStart: false });
-        this.setState({ btnStop: true });
-        this.setState({changeBtns: false});
+        this.setState({ btnStart: false, btnStop: true, changeBtns: false })
         clearInterval(this.timerID);
     }
     tick() {
@@ -67,8 +63,7 @@ class Timer extends Component {
                 timeNow: this.state.currentTime
             });
             if (!this.props.autostart) {
-                this.setState({ btnStart: false });
-                this.setState({changeBtns: false});
+                this.setState({ btnStart: false, changeBtns: false });
                 clearInterval(this.timerID);
             }
         }

@@ -1,38 +1,40 @@
 import React from 'react';
 
 function Buttons({ numbers, onStartTimer, startTimer, onStopTimer, stopTimer, disableBtnStart, disableBtnStop }) {
-    if (numbers === 0) {
-        return (
-            <div></div>
-        )
-    } else if (numbers === 1) {
-        return (
-            <div className="buttons">
-                <button onClick={() => {
+
+    return <div className="buttons">
+        {!numbers && null}
+        {numbers === 1 &&
+            <button
+                onClick={() => {
                     onStartTimer();
                     startTimer()
-                }} disabled={disableBtnStart}>
-                    Start
+                }}
+                disabled={disableBtnStart}>
+                Start
             </button>
-            </div>
-        )
-    } else if (numbers === 2) {
-        return (
-            <div className="buttons">
-                <button onClick={() => {
-                    onStartTimer();
-                    startTimer()
-                }} disabled={disableBtnStart}>
+        }
+        {numbers === 2 && (
+            <>
+                <button
+                    onClick={() => {
+                        onStartTimer();
+                        startTimer()
+                    }}
+                    disabled={disableBtnStart}>
                     Start
-                    </button>
-                <button onClick={() => {
-                    onStopTimer();
-                    stopTimer()
-                }} disabled={disableBtnStop}>Stop
-                    </button>
-            </div>
-        )
-    }
+                </button>
+                <button
+                    onClick={() => {
+                        onStopTimer();
+                        stopTimer()
+                    }}
+                    disabled={disableBtnStop}>
+                    Stop
+                </button>
+            </>
+        )}
+    </div>
 }
 
 export default Buttons;
