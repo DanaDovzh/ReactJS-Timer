@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ReactJS-Timer/static/css/main.a30806be.chunk.css",
+    "main.js": "/ReactJS-Timer/static/js/main.51d73141.chunk.js",
+    "main.js.map": "/ReactJS-Timer/static/js/main.51d73141.chunk.js.map",
+    "runtime-main.js": "/ReactJS-Timer/static/js/runtime-main.529a96bb.js",
+    "runtime-main.js.map": "/ReactJS-Timer/static/js/runtime-main.529a96bb.js.map",
+    "static/js/2.77e63f14.chunk.js": "/ReactJS-Timer/static/js/2.77e63f14.chunk.js",
+    "static/js/2.77e63f14.chunk.js.map": "/ReactJS-Timer/static/js/2.77e63f14.chunk.js.map",
+    "static/js/3.46ae002b.chunk.js": "/ReactJS-Timer/static/js/3.46ae002b.chunk.js",
+    "static/js/3.46ae002b.chunk.js.map": "/ReactJS-Timer/static/js/3.46ae002b.chunk.js.map",
+    "index.html": "/ReactJS-Timer/index.html",
+    "static/css/main.a30806be.chunk.css.map": "/ReactJS-Timer/static/css/main.a30806be.chunk.css.map",
+    "static/js/2.77e63f14.chunk.js.LICENSE.txt": "/ReactJS-Timer/static/js/2.77e63f14.chunk.js.LICENSE.txt",
+    "static/media/general.css": "/ReactJS-Timer/static/media/bg.e3d2c930.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.529a96bb.js",
+    "static/js/2.77e63f14.chunk.js",
+    "static/css/main.a30806be.chunk.css",
+    "static/js/main.51d73141.chunk.js"
+  ]
+}
